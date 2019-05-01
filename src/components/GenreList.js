@@ -5,11 +5,11 @@ class GenreList extends Component {
     constructor(props) {
         super(props);
         this.updateChosenGenres = this.updateChosenGenres.bind(this);
+        
         this.state = {
             error: null,
             isLoaded: false,
-            genres: ['Loading Genres'],
-            chosenGenres: {}
+            genres: ['Loading Genres'],            
         };
     }
 
@@ -53,7 +53,7 @@ class GenreList extends Component {
         } else {
             return (
                 <ul className="genreList">
-                    <span>Genres:</span>
+                    <span>Genres:</span> 
                     <Select onChange={this.updateChosenGenres} autoFocus={true} isMulti={true} options={this.state.genres} />
                 </ul>
             );
