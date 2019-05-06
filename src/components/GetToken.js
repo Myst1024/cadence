@@ -6,7 +6,9 @@ class GetToken extends Component {
         const apiUrl = 'https://accounts.spotify.com/authorize';
         const clientId = 'aed1fb11b28a4236aafa2241b827155f';
         const scopes = ['playlist-modify-public'];
-        const redirectUri = encodeURIComponent(window.location);
+        //Don't want to pass parameters or hashes to spotify api
+        const bareUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        const redirectUri = encodeURIComponent(bareUrl);
         const responseType = 'token';   
         const requestUrl = 
             apiUrl +
@@ -20,7 +22,7 @@ class GetToken extends Component {
 
     render() {
         return (
-            <a className="GetToken" target = "" href={this.tokenRequestUrl()}>Get Token</a>
+            <a className="GetToken" target = "" href={this.tokenRequestUrl()}>Authorize Spotify App</a>
         );
     }
 }

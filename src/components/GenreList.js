@@ -33,9 +33,10 @@ class GenreList extends Component {
                     genres: self.formatGenreData(result),
                     isLoaded: true
                 });
-                //this.props.callbackFromParent(this.state.genres);
             },
             (error) => {
+                console.log('asdf');
+                this.props.invalidateToken();
                 this.setState({
                     isLoaded: true,
                     error
@@ -47,7 +48,10 @@ class GenreList extends Component {
     
     render() {
         if (this.state.error){
-            return(<h3>Error loading Genre List</h3>)
+            if (this.state.error.status === 401)
+            return(<h3>Token expired, please request a new one:</h3>)
+            else
+                return(<h3>Error loading Genre List</h3>)
         } else if (this.isLoaded){
             return(<h3>Loading Genre List...</h3>)
         } else {

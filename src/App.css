@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -22,11 +16,23 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bodyContainer {
+  width:75%;
+  min-width: 400px;
+  margin:0 auto;
+}
+
+.bpmRangeContainer {
+  width: 80%;
+  margin: 30px auto 0;
+  height: 60px;
+}
+
+.input-range__slider {
+  background: #3f51b5;
+  border: 1px solid #3f51b5;
+}
+
+.input-range__track--active {
+  background: #3f51b5;
 }

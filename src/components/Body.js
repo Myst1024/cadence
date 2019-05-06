@@ -3,6 +3,7 @@ import Spotify from 'spotify-web-api-js';
 import GetToken from './GetToken.js';
 import GenreList from './GenreList.js';
 import BpmRange from './BpmRange.js';
+import GetSongs from './GetSongs.js';
 import SongList from './SongList.js';
 
 class Body extends Component {
@@ -14,8 +15,9 @@ class Body extends Component {
         }
         this.state = { 
             chosenGenres: [],
-            minCadence: 85,
-            maxCadence: 95,
+            minCadence: 170,
+            maxCadence: 190,
+            songList: [],
         };
     }
 
@@ -23,11 +25,18 @@ class Body extends Component {
         this.setState({chosenGenres: genreList});
     }
     updateSongList = (songList) => {
-        console.log(songList);
+        this.setState({songList: songList});
     }
+    updateCadence = (min, max) => {
+        this.setState({
+            minCadence: min,
+            maxCadence: max,
+        })
+    }
+
     render() { 
         this.seedCount = this.state.chosenGenres.length;
-        if (!this.props.haveToken) {
+        if (!this.props.haveToken || !this.props.tokenValid) {
             return (  
                 <div className="bodyContainer">
                     <GetToken />
@@ -36,9 +45,18 @@ class Body extends Component {
         } else {
             return (
                 <div className="bodyContainer">
-                    <GenreList spotify={this.spotify} updateChosenGenres={this.updateChosenGenres}/>
-                    <BpmRange minCadence={this.state.minCadence} maxCadence={this.state.maxCadence}/>
-                    <SongList spotify={this.spotify} updateSongList={this.updateSongList} seedCount={this.seedCount} chosenGenres={this.state.chosenGenres}/>
+                    <GenreList spotify={this.spotify} invalidateToken={this.props.invalidateToken} updateChosenGenres={this.updateChosenGenres}/>
+                    <BpmRange minCadence={this.state.minCadence} maxCadence={this.state.maxCadence} updateCadence={this.updateCadence}/>
+                    <GetSongs 
+                        spotify={this.spotify} 
+                        invalidateToken={this.props.invalidateToken} 
+                        updateSongList={this.updateSongList} 
+                        seedCount={this.seedCount} 
+                        chosenGenres={this.state.chosenGenres}
+                        minCadence={this.state.minCadence}
+                        maxCadence={this.state.maxCadence}
+                    />
+                    <SongList songList={this.state.songList} />
                 </div>
             )
         }

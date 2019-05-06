@@ -1,63 +1,36 @@
 import React, { Component } from 'react';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 class SongList extends Component {
     constructor(props) {
         super(props);
-        this.getRecommendations = this.getRecommendations.bind(this);
-        this.state = {
-            songs: {},
-        };
-    }
-    componentDidMount() {
+        this.state = {  }
     }
 
-    updateSongList(songs) {
-        this.props.updateSongList(songs);
-    }
+    render() { 
+        const listItems = this.props.songList.map((song) =>
+            <ListItem key={song.uri} alignItems="flex-start">
+                <ListItemAvatar>
+                    <Avatar src={song.album.images[2].url}/>
+                </ListItemAvatar>
+                <ListItemText
+                    primary={song.name}
+                    secondary={song.album.name}
+                />
+            </ListItem>
+        );
 
-    getSeedValues(seeds) {
-        let seedValues = [];
-        seeds.forEach(function(element){
-            seedValues.push(element.value);
-        })
-        return seedValues;
-    }
 
-    getRecommendations() {
-        let self = this;
-        let seeds = {
-            limit: 5,
-            seed_genres: this.getSeedValues(this.props.chosenGenres),
-            target_danceability: 0.9,
-            min_tempo: 170,
-            max_tempo: 190
-        }
-        this.props.spotify.getRecommendations(seeds).then(
-            function(response){
-                self.updateSongList(response);
-            },
-            function(error){
-                console.error(error);
-            }
-        )
-    }
-
-    render() {
-        if (this.props.seedCount >= 1 && this.props.seedCount <= 5) {
-            return(
-                <div>
-                    {this.props.seedCount}
-                    <button onClick={this.getRecommendations}>Get Songs</button>
-                </div>
-            )
-        } else if (this.props.seedCount === 0) {
-            return(<div></div>)
-        } else if (this.props.seedCount > 5) {
-            return(<div>Please select 5 or less options</div>)
-        } else {
-            return(<div>Something went wrong...</div>)
-        }
+        return ( 
+            <List className="songList">
+                {listItems}
+            </List> 
+        );
     }
 }
-
-export default SongList
+ 
+export default SongList;

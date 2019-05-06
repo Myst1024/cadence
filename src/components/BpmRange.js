@@ -7,16 +7,23 @@ class BpmRange extends Component {
         super(props);
         this.state = { 
             value: { min: this.props.minCadence, max: this.props.maxCadence},
+            min: 80,
+            max: 100
          }
     }
     render() { 
+        var value = {
+            min: this.props.minCadence, max: this.props.maxCadence
+        }
         return ( 
-            <InputRange
-                maxValue={200}
-                minValue={20}
-                value={this.state.value}
-                onChange={value => this.setState({ value })} 
-            />
+            <div className="bpmRangeContainer">
+                <InputRange
+                    maxValue={200}
+                    minValue={20}
+                    value={value}
+                    onChange={value => this.props.updateCadence(value.min, value.max)} 
+                />
+            </div>
         ); 
     }
 }
