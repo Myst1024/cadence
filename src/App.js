@@ -23,7 +23,7 @@ class App extends Component {
   	  	  	<div className="App">
   	  	  	  	<header className="App-header">
   	  	  	  		<h1>Cadence</h1>
-									<h4>Workout playlist generator</h4>
+									<h4>🚴 Workout playlist generator 🏃</h4>
   	  	  	  	</header>
   	  	  	  	<Body 
   	  	  	  		token={this.props.accessToken} 
