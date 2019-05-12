@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/cadence/static/css/main.cd51d1a2.chunk.css",
+    "main.js": "/cadence/static/js/main.a953fda7.chunk.js",
+    "main.js.map": "/cadence/static/js/main.a953fda7.chunk.js.map",
+    "runtime~main.js": "/cadence/static/js/runtime~main.e9a39147.js",
+    "runtime~main.js.map": "/cadence/static/js/runtime~main.e9a39147.js.map",
+    "static/css/2.6d7d54d2.chunk.css": "/cadence/static/css/2.6d7d54d2.chunk.css",
+    "static/js/2.8d05216f.chunk.js": "/cadence/static/js/2.8d05216f.chunk.js",
+    "static/js/2.8d05216f.chunk.js.map": "/cadence/static/js/2.8d05216f.chunk.js.map",
+    "index.html": "/cadence/index.html",
+    "precache-manifest.b27d777b410001742c32ff4b647a4b1f.js": "/cadence/precache-manifest.b27d777b410001742c32ff4b647a4b1f.js",
+    "service-worker.js": "/cadence/service-worker.js",
+    "static/css/2.6d7d54d2.chunk.css.map": "/cadence/static/css/2.6d7d54d2.chunk.css.map",
+    "static/css/main.cd51d1a2.chunk.css.map": "/cadence/static/css/main.cd51d1a2.chunk.css.map"
+  }
+}
