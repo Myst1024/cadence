@@ -24,7 +24,7 @@
 
 .bpmRangeContainer {
   width: 80%;
-  margin: 30px auto 0;
+  margin: 30px auto 10px;
   height: 60px;
 }
 
@@ -35,4 +35,39 @@
 
 .input-range__track--active {
   background: #3f51b5;
+}
+
+
+.rightIcon {
+  padding-left: 10px;
+}
+
+.create_playlist {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap:wrap;
+}
+
+.create_playlist > button {
+  margin: 0 15px;
+}
+
+.get_token {
+  margin-top: 15px !important;
+}
+
+h4 {
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+.bpm_label {
+  text-align: left;
+  display: block;
+  margin: 15px;
+}
+
+.create_playlist > * {
+  margin-top: 10px;
 }

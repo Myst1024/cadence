@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button'
 import SaveIcon from '@material-ui/icons/Save';
+import OpenInNew from '@material-ui/icons/OpenInNew';
 import TextField from '@material-ui/core/TextField';
 
 class CreatePlaylist extends Component {
@@ -83,7 +84,15 @@ class CreatePlaylist extends Component {
                         <SaveIcon className="rightIcon" />    
                     </Button>
                     {this.state.playlistUrl !== ""
-                        ? <Button variant="contained" href={this.state.playlistUrl} target="_blank">Open Playlist</Button>
+                        ? <Button 
+                            className="open_playlist" 
+                            variant="contained" 
+                            href={this.state.playlistUrl} 
+                            target="_blank"
+                        >
+                            Open Playlist
+                            <OpenInNew className="rightIcon"/>    
+                        </Button>
                         : <React.Fragment/>
                     }
                 </div>

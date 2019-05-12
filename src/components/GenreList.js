@@ -55,13 +55,12 @@ class GenreList extends Component {
         } else {
             return (
                 <ul className="genreList">
-                    <span>Genres:</span> 
                     <Select 
                         onChange={this.updateChosenGenres} 
                         autoFocus={true} 
                         isMulti={true} 
                         options={this.state.genres}
-                        placeholder="Choose up to 5 genres" 
+                        placeholder="Choose up to 5 genres (Required)" 
                     />
                 </ul>
             );

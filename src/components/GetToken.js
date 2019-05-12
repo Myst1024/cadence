@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 
 class GetToken extends Component {
 
@@ -22,7 +23,7 @@ class GetToken extends Component {
 
     render() {
         return (
-            <a className="GetToken" target = "" href={this.tokenRequestUrl()}>Authorize Spotify App</a>
+            <Button  variant="contained" color="primary" className="get_token" target = "" href={this.tokenRequestUrl()}>Authorize Spotify App</Button>
         );
     }
 }

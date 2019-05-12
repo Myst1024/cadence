@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
+import InputLabel from '@material-ui/core/InputLabel';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 class BpmRange extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            value: { min: this.props.minCadence, max: this.props.maxCadence},
-            min: 80,
-            max: 100
-         }
-    }
+
     render() { 
         var value = {
             min: this.props.minCadence, max: this.props.maxCadence
         }
         return ( 
-            <div className="bpmRangeContainer">
-                <InputRange
-                    maxValue={200}
-                    minValue={20}
-                    draggableTrack={true}
-                    value={value}
-                    onChange={value => this.props.updateCadence(value.min, value.max)} 
-                />
-            </div>
+            <Tooltip title="Choose a range which is a multiple of your desired workout cadence">
+                <div className="bpmRangeContainer">
+                    <InputLabel disableAnimation={true} className="bpm_label">Song range: {this.props.minCadence} - {this.props.maxCadence} beats per minute</InputLabel>
+                    <InputRange
+                        maxValue={200}
+                        minValue={50}
+                        draggableTrack={true}
+                        value={value}
+                        formatLabel={e => ""}
+                        onChange={value => this.props.updateCadence(value.min, value.max)} 
+                        />
+                </div>
+            </Tooltip>
         ); 
     }
 }
