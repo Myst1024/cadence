@@ -20,6 +20,7 @@ class BpmRange extends Component {
                 <InputRange
                     maxValue={200}
                     minValue={20}
+                    draggableTrack={true}
                     value={value}
                     onChange={value => this.props.updateCadence(value.min, value.max)} 
                 />

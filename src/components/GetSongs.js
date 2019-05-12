@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button'
+import SearchIcon from '@material-ui/icons/Search';
 
 class GetSongs extends Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class GetSongs extends Component {
     }
 
     updateSongList(songs) {
+        this.props.updateSongListNeedsUpdate(false);
         this.props.updateSongList(songs);
     }
 
@@ -22,7 +24,7 @@ class GetSongs extends Component {
     getRecommendations() {
         let self = this;
         let seeds = {
-            limit: 15,
+            limit: 50,
             seed_genres: this.getSeedValues(this.props.chosenGenres),
             target_danceability: 0.9,
             min_tempo: this.props.minCadence,
@@ -36,13 +38,27 @@ class GetSongs extends Component {
 
     render() {
         if (this.props.seedCount >= 1 && this.props.seedCount <= 5) {
-            return(
-                <div>
-                    <Button variant="contained" color="primary" onClick={this.getRecommendations}>Get Songs</Button>
-                </div>
-            )
+            if (this.props.songListNeedsUpdate) {
+                return(
+                    <div>
+                        <Button variant="contained" color="primary" onClick={this.getRecommendations}>
+                            Get Songs
+                            <SearchIcon className="rightIcon" />
+                        </Button>
+                    </div>
+                )
+            } else {
+                return(
+                    <div>
+                        <Button variant="outlined" color="primary" onClick={this.getRecommendations}>
+                            Get Songs
+                            <SearchIcon className="rightIcon" />
+                        </Button>
+                    </div>
+                )
+            }
         } else if (this.props.seedCount === 0) {
-            return(<div></div>)
+            return(<Button variant="contained" color="primary" disabled>Get Songs</Button>)
         } else if (this.props.seedCount > 5) {
             return(<div>Please select 5 or less options</div>)
         } else {

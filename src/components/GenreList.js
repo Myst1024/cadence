@@ -35,16 +35,14 @@ class GenreList extends Component {
                 });
             },
             (error) => {
-                console.log('asdf');
                 this.props.invalidateToken();
-                this.setState({
-                    isLoaded: true,
-                    error
-                })
             }
         )
     }
     
+    componentWillUnmount() {
+        
+    }
     
     render() {
         if (this.state.error){
@@ -58,7 +56,13 @@ class GenreList extends Component {
             return (
                 <ul className="genreList">
                     <span>Genres:</span> 
-                    <Select onChange={this.updateChosenGenres} autoFocus={true} isMulti={true} options={this.state.genres} />
+                    <Select 
+                        onChange={this.updateChosenGenres} 
+                        autoFocus={true} 
+                        isMulti={true} 
+                        options={this.state.genres}
+                        placeholder="Choose up to 5 genres" 
+                    />
                 </ul>
             );
         }

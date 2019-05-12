@@ -5,6 +5,7 @@ import GenreList from './GenreList.js';
 import BpmRange from './BpmRange.js';
 import GetSongs from './GetSongs.js';
 import SongList from './SongList.js';
+import CreatePlaylist from './CreatePlaylist.js';
 
 class Body extends Component {
     constructor(props) {
@@ -18,11 +19,18 @@ class Body extends Component {
             minCadence: 170,
             maxCadence: 190,
             songList: [],
+            songListNeedsUpdate: true
         };
     }
 
+    updateSongListNeedsUpdate = (status) => {
+        this.setState({songListNeedsUpdate: status});
+    }
+
     updateChosenGenres = (genreList) => {
-        this.setState({chosenGenres: genreList});
+        this.setState({
+            chosenGenres: genreList,
+            songListNeedsUpdate: true});
     }
     updateSongList = (songList) => {
         this.setState({songList: songList});
@@ -31,6 +39,7 @@ class Body extends Component {
         this.setState({
             minCadence: min,
             maxCadence: max,
+            songListNeedsUpdate: true
         })
     }
 
@@ -55,7 +64,16 @@ class Body extends Component {
                         chosenGenres={this.state.chosenGenres}
                         minCadence={this.state.minCadence}
                         maxCadence={this.state.maxCadence}
+                        songListNeedsUpdate={this.state.songListNeedsUpdate}
+                        updateSongListNeedsUpdate={this.updateSongListNeedsUpdate}
                     />
+                    {this.state.songList.length > 0
+                        ? <CreatePlaylist 
+                            spotify={this.spotify} 
+                            songList={this.state.songList} />
+                        : <React.Fragment />
+                    }
+                    
                     <SongList songList={this.state.songList} />
                 </div>
             )

@@ -12,3 +12,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.rightIcon {
+  padding-left: 10px;
+}
+
+.create_playlist {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.create_playlist > button {
+  margin: 0 15px;
+}

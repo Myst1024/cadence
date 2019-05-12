@@ -4,12 +4,15 @@ import './App.css';
 
 class App extends Component {
   constructor(props) {
-    super(props);
+		super(props);
+		
+		this.invalidateToken = this.invalidateToken.bind(this);
+
     this.state = { 
     	haveToken: this.props.accessToken ? true : false,
     	tokenValid: true
     }
-}
+	}
   
   	invalidateToken() {
   	  	this.setState({tokenValid: false})
@@ -20,6 +23,7 @@ class App extends Component {
   	  	  	<div className="App">
   	  	  	  	<header className="App-header">
   	  	  	  		<h1>Cadence</h1>
+									<h4>Workout playlist generator</h4>
   	  	  	  	</header>
   	  	  	  	<Body 
   	  	  	  		token={this.props.accessToken} 
