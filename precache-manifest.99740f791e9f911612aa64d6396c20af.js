@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "22a872feebc3fb8256b3c7723d854209",
+    "revision": "936902dfc804cff7752274bfb5f5b6ef",
     "url": "/cadence/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cadence/static/css/2.6d7d54d2.chunk.css"
   },
   {
-    "revision": "ddf6d3b87e97089ef4cd",
+    "revision": "c290262634bc459a319b",
     "url": "/cadence/static/css/main.73e73449.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cadence/static/js/2.13429a40.chunk.js"
   },
   {
-    "revision": "ddf6d3b87e97089ef4cd",
-    "url": "/cadence/static/js/main.0cbb00c4.chunk.js"
+    "revision": "c290262634bc459a319b",
+    "url": "/cadence/static/js/main.f36c38df.chunk.js"
   },
   {
     "revision": "a86de36a957aa709c92b",
